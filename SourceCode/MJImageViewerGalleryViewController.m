@@ -58,6 +58,7 @@
         [_pageViewController setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mjz_tapGestureRecognized:)];
+    recognizer.delaysTouchesBegan = YES;
     [self.view addGestureRecognizer:recognizer];
 }
 
@@ -77,6 +78,21 @@
 }
 
 #pragma mark Properties
+
+- (void)setImages:(NSArray *)images
+{
+    _images = images;
+    
+    [self willChangeValueForKey:@"currentImageIndex"];
+    _currentImageIndex = _images.count > 0 ? 0 : NSNotFound;
+    [self didChangeValueForKey:@"currentImageIndex"];
+    
+    UIViewController *vc = [self mjz_viewControllerForImageAtIndex:_currentImageIndex];
+    if (vc)
+        [_pageViewController setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    else
+        [_pageViewController setViewControllers:nil direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+}
 
 - (void)setCurrentImageIndex:(NSInteger)currentImageIndex
 {

@@ -39,7 +39,7 @@
                         [[NSBundle mainBundle] pathForResource:@"forest2" ofType:@"jpg"],
                         [[NSBundle mainBundle] URLForResource:@"forest3" withExtension:@"jpg"],
                         @"http://assets.worldwildlife.org/photos/946/images/carousel_small/forests-why-matter_63516847.jpg",
-                        [NSURL URLWithString:@"http://assets.worldwildlife.org/photos/946/images/carousel_small/forests-why-matter_63516847.jpg"],
+                        //[NSURL URLWithString:@"http://assets.worldwildlife.org/photos/946/images/carousel_small/forests-why-matter_63516847.jpg"],
                         [UIImage imageWithColor:[UIColor purpleColor] size:CGSizeMake(3000, 1000)],
                         [UIImage imageWithColor:[UIColor brownColor] size:CGSizeMake(1000, 3000)],
                         ];
@@ -53,6 +53,15 @@
     NSArray *images = [self mjz_arrayOfImages];
     MJImageViewerGalleryViewController *gallery = [[MJImageViewerGalleryViewController alloc] initWithImages:images];
     [self.navigationController pushViewController:gallery animated:YES];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"gallery_segue"])
+    {
+        MJImageViewerGalleryViewController *gallery = (MJImageViewerGalleryViewController*)segue.destinationViewController;
+        gallery.images = [self mjz_arrayOfImages];
+    }
 }
 
 @end

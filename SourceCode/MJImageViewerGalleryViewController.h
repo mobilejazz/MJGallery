@@ -23,7 +23,7 @@
 /**
  * The array of images to display.
  **/
-@property (nonatomic, strong, readonly) NSArray *images;
+@property (nonatomic, strong) NSArray *images;
 
 /**
  * The current selected index.

@@ -26,9 +26,20 @@
                                     <action selector="mjz_openImageGalleryProgramatically:" destination="UnB-2w-7vC" eventType="touchUpInside" id="PSL-BP-q66"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjd-0G-LHF">
+                                <rect key="frame" x="175" y="195" width="250" height="30"/>
+                                <state key="normal" title="Open Image Gallery with Storyboard">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="VRM-qm-wCj" kind="push" identifier="gallery_segue" id="aG8-l1-Ucr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="tjd-0G-LHF" secondAttribute="centerX" id="86G-h4-axa"/>
+                            <constraint firstItem="tjd-0G-LHF" firstAttribute="top" secondItem="WgL-M5-2wB" secondAttribute="bottom" constant="50" id="oov-fT-3ya"/>
                             <constraint firstAttribute="centerX" secondItem="WgL-M5-2wB" secondAttribute="centerX" id="qtM-hT-1G3"/>
                             <constraint firstItem="WgL-M5-2wB" firstAttribute="top" secondItem="I7C-6X-xZ4" secondAttribute="bottom" constant="51" id="tVI-sB-xOL"/>
                         </constraints>
@@ -38,6 +49,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iG8-5O-nLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="932" y="658"/>
+        </scene>
+        <!--Image Viewer Gallery View Controller-->
+        <scene sceneID="iFB-uO-fB1">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="VRM-qm-wCj" customClass="MJImageViewerGalleryViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cnS-1f-fFw"/>
+                        <viewControllerLayoutGuide type="bottom" id="l6B-0W-QaO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vJk-19-u3I">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Zmc-lc-zgm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yl1-Po-urq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1751" y="658"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ehh-e9-xqv">

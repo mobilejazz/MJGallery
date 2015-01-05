@@ -141,14 +141,6 @@
     }
 }
 
-- (void)setImageLayoutsSideToSide:(BOOL)imageLayoutsSideToSide
-{
-    _imageLayoutsSideToSide = imageLayoutsSideToSide;
-    
-    if (_zoomView.image)
-        [self mjz_configureForImageSize:_zoomView.image.size];
-}
-
 - (void)setMaxScaleFactor:(CGFloat)maxScaleFactor
 {
     _maxScaleFactor = maxScaleFactor;
@@ -174,7 +166,6 @@
 {
     // Configuring instance
     _maxScaleFactor = 2.0f;
-    _imageLayoutsSideToSide = YES;
     _autoadjustToHeight = NO;
     _dragingNotEnabledWhenDefaultZoom = YES;
     self.doubleTapForZoomEnabled = YES;
@@ -210,6 +201,7 @@
 {
     _imageSize = imageSize;
     self.contentSize = imageSize;
+    
     [self mjz_setMaxMinZoomScalesForCurrentBounds];
     
     CGFloat zoom = _autoadjustToHeight ? [self mjz_zoomFactorForFullHeight] : self.minimumZoomScale;
@@ -218,8 +210,6 @@
         self.maximumZoomScale = zoom;
     
     self.zoomScale = zoom;
-    
-    [self setContentOffset:CGPointMake(floorf(((imageSize.width)*zoom - self.bounds.size.width)/2.0), 0) animated:NO];
 }
 
 - (CGFloat)mjz_zoomFactorForFullHeight
@@ -248,10 +238,9 @@
     CGFloat minScale = MIN(xScale, yScale);
     
     // In order to not touch the border of the superview
-    if (!_imageLayoutsSideToSide)
-        minScale *= 0.95;
+//    minScale *= 0.95;
     
-    CGFloat maxScale = 0;//minScale;
+    CGFloat maxScale = 0;
     
     if (_maxScaleFactor == 0.0f)
     {
@@ -333,8 +322,7 @@
 {
     if (fabs(self.zoomScale - self.minimumZoomScale) < FLT_EPSILON)
     {
-        CGFloat newScale = _autoadjustToHeight?[self mjz_zoomFactorForFullHeight]:self.maximumZoomScale;
-        
+        CGFloat newScale = self.maximumZoomScale;
         CGRect zoomRect = [self mjz_zoomRectForScale:newScale withCenter:[recognizer locationInView:recognizer.view]];
         [self zoomToRect:zoomRect animated:YES];
     }

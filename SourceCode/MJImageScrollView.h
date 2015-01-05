@@ -28,12 +28,6 @@
 @property (nonatomic, assign) BOOL doubleTapForZoomEnabled;
 
 /**
- * If NO, the minimum zoom scale layouts the image from side to side of the view, otherwise a small padding is added. Default value is YES.
- * @discussion If `imageLayoutsSideToSide` is YES, the image will only be rendered side to side if the applicable zoom is smaller or equal to `maxScaleFactor`.
- */
-@property (nonatomic, assign) BOOL imageLayoutsSideToSide;
-
-/**
  * The maximum scale factor. If 0, the max zoom scale matches the image size. Default value is 2.0.
  */
 @property (nonatomic, assign) CGFloat maxScaleFactor;

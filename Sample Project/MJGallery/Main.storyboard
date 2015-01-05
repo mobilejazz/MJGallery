@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="cTZ-Xo-o5P">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+    </dependencies>
+    <scenes>
+        <!--MJGallery-->
+        <scene sceneID="gpA-GO-Noe">
+            <objects>
+                <viewController id="UnB-2w-7vC" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I7C-6X-xZ4"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfa-uV-VPd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0yu-zs-WHO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WgL-M5-2wB">
+                                <rect key="frame" x="177" y="115" width="246" height="30"/>
+                                <state key="normal" title="Open Image Gallery programatically">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="mjz_openImageGalleryProgramatically:" destination="UnB-2w-7vC" eventType="touchUpInside" id="PSL-BP-q66"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="WgL-M5-2wB" secondAttribute="centerX" id="qtM-hT-1G3"/>
+                            <constraint firstItem="WgL-M5-2wB" firstAttribute="top" secondItem="I7C-6X-xZ4" secondAttribute="bottom" constant="51" id="tVI-sB-xOL"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="MJGallery" id="pGg-ve-1zC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iG8-5O-nLL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="932" y="658"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ehh-e9-xqv">
+            <objects>
+                <navigationController id="cTZ-Xo-o5P" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f8r-0U-vl7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="UnB-2w-7vC" kind="relationship" relationship="rootViewController" id="ng2-4g-DM0"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Ag-R6-RXz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="62" y="658"/>
+        </scene>
+    </scenes>
+</document>

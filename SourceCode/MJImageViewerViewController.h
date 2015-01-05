@@ -37,4 +37,9 @@
  **/
 - (void)setPreferredStatusBarStyle:(UIStatusBarStyle)preferredStatusBarStyle;
 
+/**
+ * Auxiliar property used by the MJImageViewerGalleryViewController
+ **/
+@property (nonatomic, assign) NSInteger index;
+
 @end

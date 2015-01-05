@@ -37,6 +37,8 @@
 {
     [super viewDidLoad];
     
+   self.view.backgroundColor = [UIColor blackColor];
+    
     _pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                                                           navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                                                                         options:nil];
@@ -52,7 +54,8 @@
     [_pageViewController.view lyt_alignToParent];
     
     UIViewController *vc = [self mjz_viewControllerForImageAtIndex:_currentImageIndex];
-    [_pageViewController setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    if (vc)
+        [_pageViewController setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     
     UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(mjz_tapGestureRecognized:)];
     [self.view addGestureRecognizer:recognizer];
@@ -82,7 +85,8 @@
     if (self.isViewLoaded)
     {
         UIViewController *vc = [self mjz_viewControllerForImageAtIndex:_currentImageIndex];
-        [_pageViewController setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+        if (vc)
+            [_pageViewController setViewControllers:@[vc] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     }
 }
 
@@ -102,6 +106,8 @@
     
     MJImageViewerViewController *imageVC = [[MJImageViewerViewController alloc] initWithImage:_images[index]];
     imageVC.preferredStatusBarStyle = _customPreferredStatusBarStyle;
+    imageVC.index = index;
+    
     return imageVC;
 }
 
@@ -119,8 +125,7 @@
 
 - (UIViewController*)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
 {
-    id currentImage = [(MJImageViewerViewController*)viewController image];
-    NSInteger currentIndex = [_images indexOfObject:currentImage];
+    NSInteger currentIndex = [(MJImageViewerViewController*)viewController index];
     
     if (currentIndex == NSNotFound)
         return nil;
@@ -130,8 +135,7 @@
 
 - (UIViewController*)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
-    id currentImage = [(MJImageViewerViewController*)viewController image];
-    NSInteger currentIndex = [_images indexOfObject:currentImage];
+    NSInteger currentIndex = [(MJImageViewerViewController*)viewController index];
     
     if (currentIndex == NSNotFound)
         return nil;
@@ -145,10 +149,8 @@
 {
     if (completed)
     {
-        id currentImage = [_pageViewController.viewControllers.firstObject image];
-        
         [self willChangeValueForKey:@"currentImageIndex"];
-        _currentImageIndex = [_images indexOfObject:currentImage];
+        _currentImageIndex = [_pageViewController.viewControllers.firstObject index];
         [self didChangeValueForKey:@"currentImageIndex"];
     }
 }

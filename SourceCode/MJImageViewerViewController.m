@@ -29,6 +29,7 @@
     self = [super initWithNibName:nil bundle:nil];
     if (self)
     {
+        _index = NSNotFound;
         _image = image;
         _customPreferredStatusBarStyle = UIStatusBarStyleDefault;
         self.automaticallyAdjustsScrollViewInsets = NO;
@@ -59,31 +60,60 @@
     }
     else
     {
-        NSURL *url = nil;
+        BOOL done = NO;
         
-        if ([_image isKindOfClass:NSURL.class])
-            url = _image;
-        else if ([_image isKindOfClass:NSString.class])
-            url = [NSURL URLWithString:_image];
-        
-        if (url)
+        if ([_image isKindOfClass:NSString.class])
         {
-            BOOL const done = [self mjz_fetchImageAtURL:_image success:^(UIImage *image) {
-                [_activityIndicatorView stopAnimating];
+            UIImage *image = [UIImage imageNamed:_image];
+            if (image)
+            {
                 _imageScrollView.image = image;
-                
-                [_imageScrollView setNeedsLayout];
-                [_imageScrollView layoutIfNeeded];
-                
-            } failure:^(NSError *error) {
-                [_activityIndicatorView stopAnimating];
-            }];
+                done = YES;
+            }
+        }
+        else if ([_image isKindOfClass:NSURL.class])
+        {
+            NSURL *url = _image;
             
-            if (!done)
-                [_activityIndicatorView startAnimating];
+            if (url.isFileURL)
+            {
+                UIImage *image = [UIImage imageNamed:url.path];
+                if (image)
+                {
+                    _imageScrollView.image = image;
+                    done = YES;
+                }
+            }
+        }
+        
+        // otherwise, lets attemp to fetch the image
+        if (!done)
+        {
+            NSURL *url = nil;
+            
+            if ([_image isKindOfClass:NSURL.class])
+                url = _image;
+            else if ([_image isKindOfClass:NSString.class])
+                url = [NSURL URLWithString:_image];
+            
+            if (url && [url.scheme isEqualToString:@"http"])
+            {
+                BOOL const done = [self mjz_fetchImageAtURL:url success:^(UIImage *image) {
+                    [_activityIndicatorView stopAnimating];
+                    _imageScrollView.image = image;
+                    
+                    [_imageScrollView setNeedsLayout];
+                    [_imageScrollView layoutIfNeeded];
+                    
+                } failure:^(NSError *error) {
+                    [_activityIndicatorView stopAnimating];
+                }];
+                
+                if (!done)
+                    [_activityIndicatorView startAnimating];
+            }
         }
     }
-
 }
 
 - (void)didReceiveMemoryWarning
@@ -110,7 +140,6 @@
     // Hide the navigation bar if landscape
     [self.navigationController setNavigationBarHidden:!isPortrait animated:YES];
 }
-
 
 - (UIStatusBarStyle)preferredStatusBarStyle
 {

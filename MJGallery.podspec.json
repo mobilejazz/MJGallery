@@ -1,0 +1,37 @@
+{
+  "name": "MJGallery",
+  "version": "0.0.1",
+  "summary": "Image Viewer Gallery for iOS",
+  "description": "MJGallery is a view controller that displays a list of images as the Photos app does in your iOS device.",
+  "homepage": "https://github.com/mobilejazz/MJGallery",
+  "license": {
+    "type": "Apache License, Version 2.0",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Mobile Jazz": "info@mobilejazz.cat"
+  },
+  "social_media_url": "http://twitter.com/mobilejazzcat",
+  "source": {
+    "git": "https://github.com/mobilejazz/MJGallery.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+  	"ios": "7.0"
+  },
+  "source_files": [
+    "SourceCode/*.{h,m}"
+  ],
+  "frameworks": [
+	  "Foundation"
+  ],
+  "dependencies": {
+	  "Lyt":[
+		  
+	  ],
+	  "Haneke":[ 
+		  
+	  ]
+  },
+  "requires_arc": true
+}

@@ -47,7 +47,7 @@
     _activityIndicatorView.translatesAutoresizingMaskIntoConstraints = NO;
     [_activityIndicatorView lyt_centerInParent];
     
-    _imageScrollView = [[MJImageScrollView alloc] initWithFrame:self.view.bounds];
+    _imageScrollView = [[MJImageScrollView alloc] initWithFrame:CGRectZero];
     [self.view addSubview:_imageScrollView];
     _imageScrollView.translatesAutoresizingMaskIntoConstraints = NO;
     [_imageScrollView lyt_alignToParent];

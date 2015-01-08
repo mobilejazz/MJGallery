@@ -17,8 +17,8 @@
 		D2A5B60C1A5ADDA8007C0C7A /* MJImageViewerGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A5B6081A5ADDA8007C0C7A /* MJImageViewerGalleryViewController.m */; };
 		D2A5B60D1A5ADDA8007C0C7A /* MJImageViewerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2A5B60A1A5ADDA8007C0C7A /* MJImageViewerViewController.m */; };
 		D2A5B6111A5ADE1D007C0C7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2A5B6101A5ADE1D007C0C7A /* Main.storyboard */; };
-		D2A5B6191A5AE4A5007C0C7A /* forest2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2A5B6171A5AE4A5007C0C7A /* forest2.jpg */; };
-		D2A5B61A1A5AE4A5007C0C7A /* forest3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2A5B6181A5AE4A5007C0C7A /* forest3.jpg */; };
+		D2A5B6191A5AE4A5007C0C7A /* forest2@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2A5B6171A5AE4A5007C0C7A /* forest2@2x.jpg */; };
+		D2A5B61A1A5AE4A5007C0C7A /* forest3@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D2A5B6181A5AE4A5007C0C7A /* forest3@2x.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,8 +52,8 @@
 		D2A5B6091A5ADDA8007C0C7A /* MJImageViewerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJImageViewerViewController.h; sourceTree = "<group>"; };
 		D2A5B60A1A5ADDA8007C0C7A /* MJImageViewerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJImageViewerViewController.m; sourceTree = "<group>"; };
 		D2A5B6101A5ADE1D007C0C7A /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		D2A5B6171A5AE4A5007C0C7A /* forest2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = forest2.jpg; sourceTree = "<group>"; };
-		D2A5B6181A5AE4A5007C0C7A /* forest3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = forest3.jpg; sourceTree = "<group>"; };
+		D2A5B6171A5AE4A5007C0C7A /* forest2@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "forest2@2x.jpg"; sourceTree = "<group>"; };
+		D2A5B6181A5AE4A5007C0C7A /* forest3@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "forest3@2x.jpg"; sourceTree = "<group>"; };
 		FB6EB8F4BB44BEB63045B787 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,8 +163,8 @@
 		D2A5B6121A5AE488007C0C7A /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				D2A5B6171A5AE4A5007C0C7A /* forest2.jpg */,
-				D2A5B6181A5AE4A5007C0C7A /* forest3.jpg */,
+				D2A5B6171A5AE4A5007C0C7A /* forest2@2x.jpg */,
+				D2A5B6181A5AE4A5007C0C7A /* forest3@2x.jpg */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -229,6 +229,7 @@
 				TargetAttributes = {
 					D2A5B5D01A5ADC7A007C0C7A = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = 3VP5WS89TZ;
 					};
 					D2A5B5E91A5ADC7A007C0C7A = {
 						CreatedOnToolsVersion = 6.1.1;
@@ -262,8 +263,8 @@
 			files = (
 				D2A5B6111A5ADE1D007C0C7A /* Main.storyboard in Resources */,
 				D2A5B5E21A5ADC7A007C0C7A /* Images.xcassets in Resources */,
-				D2A5B61A1A5AE4A5007C0C7A /* forest3.jpg in Resources */,
-				D2A5B6191A5AE4A5007C0C7A /* forest2.jpg in Resources */,
+				D2A5B61A1A5AE4A5007C0C7A /* forest3@2x.jpg in Resources */,
+				D2A5B6191A5AE4A5007C0C7A /* forest2@2x.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -426,10 +427,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MJGallery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -439,10 +442,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = MJGallery/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

@@ -30,9 +30,10 @@ To use MJGallery, simply instantiate a `MJImageViewerGalleryViewController` and 
 Images can be instnaces of `UIImage` or simply url paths to the image (`NSURL` or `NSString`). You can mix them in a single array.
 
 ```
-NSArray *images = @[[UIImage imageNamed:@"myImage"], 
+NSArray *images = @[@"myImage1",
+                    [UIImage imageNamed:@"myImage2"], 
                     @"http://server.com/image.png",
-                    [NSURL URLWithString:@"http://server.com/image.png"]
+                    [NSURL URLWithString:@"http://server.com/image.png"],
                     ];
 MJImageViewerGalleryViewController *galleryViewController = [[MJImageViewerGalleryViewController alloc] initWithImages:array];
 ```
